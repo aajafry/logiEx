@@ -1,10 +1,10 @@
-import axios from "axios";
+import { createResource } from "@/utilities";
 
 const AUTH_URL = import.meta.env.VITE_AUTH;
 
 export const forgotPassword = async (data) => {
   try {
-    const response = await axios.post(
+    const response = await createResource(
       `${AUTH_URL}/request-password-reset`,
       data
     );

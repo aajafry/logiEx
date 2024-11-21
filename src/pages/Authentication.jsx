@@ -1,7 +1,7 @@
 import {
-  ForgotPasswordForm,
-  LoginFrom,
-  RegistrationFrom,
+  ForgotPasswordSection,
+  LoginSection,
+  RegistrationSection,
 } from "@/organisms";
 import { Tabs, TabsList, TabsTrigger } from "@/shadcn/components/ui/tabs";
 import { useState } from "react";
@@ -16,10 +16,10 @@ export const Authentication = () => {
           <TabsTrigger value="login">Login</TabsTrigger>
           <TabsTrigger value="registration">Registration</TabsTrigger>
         </TabsList>
-        <LoginFrom setOpen={setIsForgotPasswordOpen} />
-        <RegistrationFrom />
+        <LoginSection setOpen={setIsForgotPasswordOpen} />
+        <RegistrationSection />
       </Tabs>
-      <ForgotPasswordForm
+      <ForgotPasswordSection
         open={isForgotPasswordOpen}
         setOpen={setIsForgotPasswordOpen}
       />

@@ -1,10 +1,10 @@
-import axios from "axios";
+import { createResource } from "@/utilities";
 
 const AUTH_URL = import.meta.env.VITE_AUTH;
 
 export const registration = async (data) => {
   try {
-    const response = await axios.post(`${AUTH_URL}/register`, data);
+    const response = await createResource(`${AUTH_URL}/register`, data)
     if (response.status === 201) {
       return response.data;
     } else {

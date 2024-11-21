@@ -1,10 +1,10 @@
-import axios from "axios";
+import { createResource } from "@/utilities";
 
 const AUTH_URL = import.meta.env.VITE_AUTH;
 
 export const logout = async (userId) => {
   try {
-    const response = await axios.post(`${AUTH_URL}/logout/${userId}`);
+    const response = await createResource(`${AUTH_URL}/logout/${userId}`);
     if (response.status === 200) {
       return response.data;
     } else {

@@ -1,31 +1,22 @@
 import { RailSymbol as Vehicle } from "lucide-react";
 import {
-  FaGift as Product,
-  FaStore as Vendor,
-  FaFileInvoiceDollar as Sale,
-  FaShippingFast as Shipment,
-  FaUserAstronaut as Supervisors,
-  FaUsers as Customer,
-} from "react-icons/fa";
-import { GrUserWorker as Employee } from "react-icons/gr";
-import { GiCaptainHatProfile as Captain } from "react-icons/gi";
-import {
   BiSolidCategory as Category,
   BiSolidPurchaseTag as Purchase,
   BiTransferAlt as Transfer,
 } from "react-icons/bi";
 import {
-  MdDashboard as Dashboard,
-  MdInventory as Inventory,
-} from "react-icons/md";
-import { TbMessageReportFilled as Report } from "react-icons/tb";
+  FaUsers as Customer,
+  FaGift as Product,
+  FaFileInvoiceDollar as Sale,
+  FaShippingFast as Shipment,
+  FaUserAstronaut as Supervisors,
+  FaStore as Vendor,
+} from "react-icons/fa";
+import { GiCaptainHatProfile as Captain } from "react-icons/gi";
+import { GrUserWorker as Employee } from "react-icons/gr";
+import { MdInventory as Inventory } from "react-icons/md";
 
 export const adminMenus = [
-  {
-    title: "Dashboard",
-    url: "/admin/dashboard",
-    icon: Dashboard,
-  },
   {
     title: "Vendors",
     url: "/admin/vendors",
@@ -50,6 +41,11 @@ export const adminMenus = [
     title: "Inventories",
     url: "/admin/inventories",
     icon: Inventory,
+  },
+  {
+    title: "Supervisors",
+    url: "/admin/inventories/supervisors",
+    icon: Supervisors,
   },
   {
     title: "Transfers",
@@ -81,11 +77,6 @@ export const adminMenus = [
     url: "/admin/customers",
     icon: Customer,
   },
-  {
-    title: "Reports",
-    url: "/admin/reports",
-    icon: Report,
-  },
 ];
 
 export const procurementManagerMenus = [
@@ -109,6 +100,11 @@ export const procurementManagerMenus = [
     url: "/procurement-manager/purchases",
     icon: Purchase,
   },
+  {
+    title: "Inventories",
+    url: "/procurement-manager/inventories",
+    icon: Inventory,
+  },
 ];
 
 export const fleetManagerMenus = [
@@ -127,13 +123,43 @@ export const fleetManagerMenus = [
     url: "/fleet-manager/shipments",
     icon: Shipment,
   },
+  {
+    title: "Sales",
+    url: "/fleet-manager/sales",
+    icon: Sale,
+  },
 ];
 
 export const inventoryManagerMenus = [
   {
+    title: "Vendors",
+    url: "/inventory-manager/vendors",
+    icon: Vendor,
+  },
+  {
+    title: "Categories",
+    url: "/inventory-manager/categories",
+    icon: Category,
+  },
+  {
+    title: "Products",
+    url: "/inventory-manager/products",
+    icon: Product,
+  },
+  {
+    title: "Purchases",
+    url: "/inventory-manager/purchases",
+    icon: Purchase,
+  },
+  {
     title: "Inventories",
     url: "/inventory-manager/inventories",
     icon: Inventory,
+  },
+  {
+    title: "Supervisors",
+    url: "/inventory-manager/inventories/supervisors",
+    icon: Supervisors,
   },
   {
     title: "Transfers",
@@ -151,9 +177,14 @@ export const inventoryManagerMenus = [
     icon: Shipment,
   },
   {
-    title: "Supervisors",
-    url: "/inventory-manager/supervisors",
-    icon: Supervisors,
+    title: "Vehicles",
+    url: "/inventory-manager/vehicles",
+    icon: Vehicle,
+  },
+  {
+    title: "Employees",
+    url: "/inventory-manager/employees",
+    icon: Employee,
   },
   {
     title: "Customers",
@@ -163,6 +194,16 @@ export const inventoryManagerMenus = [
 ];
 
 export const inventoryInChargeMenus = [
+  {
+    title: "Categories",
+    url: "/inventory-in-charge/categories",
+    icon: Category,
+  },
+  {
+    title: "Products",
+    url: "/inventory-in-charge/products",
+    icon: Product,
+  },
   {
     title: "Inventories",
     url: "/inventory-in-charge/inventory",
@@ -184,6 +225,11 @@ export const inventoryInChargeMenus = [
     icon: Shipment,
   },
   {
+    title: "Vehicles",
+    url: "/inventory-in-charge/vehicles",
+    icon: Vehicle,
+  },
+  {
     title: "Customers",
     url: "/inventory-in-charge/customers",
     icon: Customer,
@@ -195,5 +241,10 @@ export const CaptainMenus = [
     title: "Shipments",
     url: "/captain/shipments",
     icon: Shipment,
+  },
+  {
+    title: "Vehicles",
+    url: "/captain/vehicles",
+    icon: Vehicle,
   },
 ];

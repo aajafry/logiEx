@@ -64,9 +64,7 @@ export const SidebarFooterSection = () => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <SidebarMenuButton className="focus-visible:ring-0">
-                <Avatar 
-                className="h-8 w-8 float-start"
-                >
+                <Avatar className="h-8 w-8 float-start">
                   <AvatarImage src={`${userAvatar}`} />
                   <AvatarFallback>
                     <User2 />
