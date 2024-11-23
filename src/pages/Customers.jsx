@@ -1,11 +1,12 @@
 import { LoadingButton } from "@/atoms";
 import { customerColumns } from "@/config";
 import { useCustomers, useVisibility } from "@/hooks";
+import { DeleteCustomerConfirmation } from "@/molecules";
 import {
-  DataTable,
-  DeleteCustomerConfirmation,
-} from "@/molecules";
-import { CreateCustomerForm, UpdateCustomerFrom } from "@/organisms";
+  CommonDataTable,
+  CreateCustomerForm,
+  UpdateCustomerFrom,
+} from "@/organisms";
 import {
   Dialog,
   DialogContent,
@@ -139,7 +140,11 @@ export const Customers = () => {
             />
           )}
         </div>
-        <DataTable columns={columns} data={customers} filterColumn="email" />
+        <CommonDataTable
+          columns={columns}
+          data={customers}
+          searchColumn="email"
+        />
       </div>
     </>
   );

@@ -1,11 +1,12 @@
 import { LoadingButton } from "@/atoms";
 import { transferColumns } from "@/config";
 import { useSupervisors, useTransfers, useVisibility } from "@/hooks";
+import { DeleteTransferConfirmation } from "@/molecules";
 import {
-  DataTable,
-  DeleteTransferConfirmation,
-} from "@/molecules";
-import { CreateTransferForm, UpdateTransferFrom } from "@/organisms";
+  CreateTransferForm,
+  TransferDataTable,
+  UpdateTransferFrom,
+} from "@/organisms";
 import {
   Dialog,
   DialogContent,
@@ -161,11 +162,7 @@ export const Transfers = () => {
             />
           )}
         </div>
-        <DataTable
-          columns={columns}
-          data={filterredTransfers}
-          filterColumn="trf_id"
-        />
+        <TransferDataTable columns={columns} data={filterredTransfers} />
       </div>
     </>
   );

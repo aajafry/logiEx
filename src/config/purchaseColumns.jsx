@@ -1,33 +1,42 @@
-import { Actions } from "@/molecules";
+import { DataTableColumnHeader, DataTableRowActions } from "@/molecules";
 import moment from "moment";
 
-export const purchaseColumns = (
-  // onPreview,
-  onEdit,
-  onDelete
-) => [
+export const purchaseColumns = (onEdit, onDelete) => [
   {
     accessorKey: "mr_id",
-    header: "MR ID",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="MR ID" />
+    ),
     cell: ({ row }) => <div className="uppercase">{row.getValue("mr_id")}</div>,
+    enableHiding: false,
   },
   {
     accessorKey: "vendor",
-    header: "Vendor",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Vendor" />
+    ),
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("vendor")}</div>
     ),
   },
   {
     accessorKey: "inventory",
-    header: "Inventory",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Inventory" />
+    ),
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("inventory")}</div>
     ),
   },
   {
     accessorKey: "adjustment",
-    header: () => <div className="text-right">Adjustment</div>,
+    header: ({ column }) => (
+      <DataTableColumnHeader
+        column={column}
+        title="Adjustment"
+        className="justify-end"
+      />
+    ),
     cell: ({ row }) => {
       const adjustment = parseFloat(row.getValue("adjustment"));
 
@@ -42,7 +51,13 @@ export const purchaseColumns = (
   },
   {
     accessorKey: "total_price",
-    header: () => <div className="text-right">Total Price</div>,
+    header: ({ column }) => (
+      <DataTableColumnHeader
+        column={column}
+        title="Total Price"
+        className="justify-end"
+      />
+    ),
     cell: ({ row }) => {
       const totalPrice = parseFloat(row.getValue("total_price"));
 
@@ -57,19 +72,25 @@ export const purchaseColumns = (
   },
   {
     accessorKey: "purchase_date",
-    header: "Purchase Date",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Purchase Date" />
+    ),
     cell: ({ row }) => (
       <div>{moment(row.original.purchase_date).format("YYYY-MMM-DD")}</div>
     ),
+    filterFn: (row, id, value) => {
+      const rowDate = new Date(row.getValue(id));
+      const [startDate, endDate] = value;
+      return rowDate >= startDate && rowDate <= endDate;
+    },
   },
   {
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
       return (
-        <Actions
+        <DataTableRowActions
           row={row}
-          // onPreview={() => onPreview(row.original.mr_id)}
           onEdit={() => onEdit(row.original.mr_id)}
           onDelete={() => onDelete(row.original.mr_id)}
         />

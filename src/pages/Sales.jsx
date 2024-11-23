@@ -1,11 +1,8 @@
 import { LoadingButton } from "@/atoms";
 import { salesColumns } from "@/config";
 import { useSales, useSupervisors, useVisibility } from "@/hooks";
-import {
-  DataTable,
-  DeleteSaleConfirmation,
-} from "@/molecules";
-import { CreateSaleForm, UpdateSaleFrom } from "@/organisms";
+import { DeleteSaleConfirmation } from "@/molecules";
+import { CreateSaleForm, SaleDataTable, UpdateSaleFrom } from "@/organisms";
 import {
   Dialog,
   DialogContent,
@@ -28,7 +25,7 @@ export const Sales = () => {
 
   const loadSales = useCallback(async () => {
     await getSales();
-  }, [getSales])
+  }, [getSales]);
 
   useEffect(() => {
     loadSales();
@@ -157,11 +154,7 @@ export const Sales = () => {
             />
           )}
         </div>
-        <DataTable
-          columns={columns}
-          data={filterredSales}
-          filterColumn="bill_id"
-        />
+        <SaleDataTable columns={columns} data={filterredSales} />
       </div>
     </>
   );

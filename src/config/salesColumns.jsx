@@ -1,42 +1,54 @@
-import { Actions } from "@/molecules";
+import { DataTableColumnHeader, DataTableRowActions } from "@/molecules";
 import moment from "moment";
 
-export const salesColumns = (
-  // onPreview,
-  onEdit,
-  onDelete
-) => [
+export const salesColumns = (onEdit, onDelete) => [
   {
     accessorKey: "bill_id",
-    header: "BILL ID",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="BILL ID" />
+    ),
     cell: ({ row }) => (
       <div className="uppercase">{row.getValue("bill_id")}</div>
     ),
+    enableHiding: false,
   },
   {
     accessorKey: "inventory",
-    header: "Inventory",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Inventory" />
+    ),
     cell: ({ row }) => (
       <div className="uppercase">{row.getValue("inventory")}</div>
     ),
   },
   {
     accessorKey: "customer",
-    header: "Customer",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Customer" />
+    ),
     cell: ({ row }) => (
       <div className="capitalize">{row.original.customer?.name}</div>
     ),
   },
   {
     accessorKey: "shipping_address",
-    header: "Address",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Address" />
+    ),
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("shipping_address")}</div>
     ),
+    enableSorting: false,
   },
   {
     accessorKey: "adjustment",
-    header: () => <div className="text-right">Adjustment</div>,
+    header: ({ column }) => (
+      <DataTableColumnHeader
+        column={column}
+        title="Adjustment"
+        className="justify-end"
+      />
+    ),
     cell: ({ row }) => {
       const adjustment = parseFloat(row.getValue("adjustment"));
 
@@ -51,7 +63,13 @@ export const salesColumns = (
   },
   {
     accessorKey: "total_price",
-    header: () => <div className="text-right">Total Price</div>,
+    header: ({ column }) => (
+      <DataTableColumnHeader
+        column={column}
+        title="Total Price"
+        className="justify-end"
+      />
+    ),
     cell: ({ row }) => {
       const totalPrice = parseFloat(row.getValue("total_price"));
 
@@ -66,26 +84,34 @@ export const salesColumns = (
   },
   {
     accessorKey: "status",
-    header: "Status",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Status" />
+    ),
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("status")}</div>
     ),
   },
   {
     accessorKey: "sale_date",
-    header: "Sale Date",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Sale Date" />
+    ),
     cell: ({ row }) => (
       <div>{moment(row.original.sale_date).format("YYYY-MMM-DD")}</div>
     ),
+    filterFn: (row, id, value) => {
+      const rowDate = new Date(row.getValue(id));
+      const [startDate, endDate] = value;
+      return rowDate >= startDate && rowDate <= endDate;
+    },
   },
   {
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
       return (
-        <Actions
+        <DataTableRowActions
           row={row}
-          // onPreview={() => onPreview(row.original.bill_id)}
           onEdit={() => onEdit(row.original.bill_id)}
           onDelete={() => onDelete(row.original.bill_id)}
         />

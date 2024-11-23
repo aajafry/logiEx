@@ -1,36 +1,29 @@
-import { Actions } from "@/molecules";
-import { Button } from "@/shadcn/components/ui/button";
-import { ArrowUpDown } from "lucide-react";
+import { DataTableColumnHeader, DataTableRowActions } from "@/molecules";
 
 export const categoryColumns = (onEdit, onDelete) => [
   {
     accessorKey: "name",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Name
-          <ArrowUpDown />
-        </Button>
-      );
-    },
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Name" />
+    ),
     cell: ({ row }) => <div className="capitalize">{row.getValue("name")}</div>,
   },
   {
     accessorKey: "description",
-    header: "Description",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Description" />
+    ),
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("description")}</div>
     ),
+    enableSorting: false,
   },
   {
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
       return (
-        <Actions
+        <DataTableRowActions
           row={row}
           onEdit={() => onEdit(row.original.name)}
           onDelete={() => onDelete(row.original.name)}

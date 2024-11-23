@@ -1,33 +1,32 @@
-import { Actions } from "@/molecules";
-import { Button } from "@/shadcn/components/ui/button";
-import { ArrowUpDown } from "lucide-react";
+import { DataTableColumnHeader, DataTableRowActions } from "@/molecules";
 
 export const productColumns = (onEdit, onDelete) => [
   {
     accessorKey: "name",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Name
-          <ArrowUpDown />
-        </Button>
-      );
-    },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("name")}</div>,
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Name" />
+    ),
+    cell: ({ row }) => <div className="capitalize">{row.getValue("name")}</div>,
   },
   {
     accessorKey: "category",
-    header: "Category",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Category" />
+    ),
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("category")}</div>
     ),
+    enableColumnFilter: true,
   },
   {
     accessorKey: "price",
-    header: () => <div className="text-right">Price</div>,
+    header: ({ column }) => (
+      <DataTableColumnHeader
+        column={column}
+        title="Price"
+        className=" justify-end"
+      />
+    ),
     cell: ({ row }) => {
       const price = parseFloat(row.getValue("price"));
 
@@ -42,7 +41,9 @@ export const productColumns = (onEdit, onDelete) => [
   },
   {
     accessorKey: "sku",
-    header: "SKU",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="SKU" />
+    ),
     cell: ({ row }) => <div className="capitalize">{row.getValue("sku")}</div>,
   },
   {
@@ -50,7 +51,7 @@ export const productColumns = (onEdit, onDelete) => [
     enableHiding: false,
     cell: ({ row }) => {
       return (
-        <Actions
+        <DataTableRowActions
           row={row}
           onEdit={() => onEdit(row.original.name)}
           onDelete={() => onDelete(row.original.name)}

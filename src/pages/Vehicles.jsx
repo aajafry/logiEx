@@ -1,11 +1,12 @@
 import { LoadingButton } from "@/atoms";
 import { vehicleColumns } from "@/config";
 import { useVehicles, useVisibility } from "@/hooks";
+import { DeleteVehicleConfirmation } from "@/molecules";
 import {
-  DataTable,
-  DeleteVehicleConfirmation,
-} from "@/molecules";
-import { CreateVehicleForm, UpdateVehicleFrom } from "@/organisms";
+  CreateVehicleForm,
+  UpdateVehicleFrom,
+  VehicleDataTable,
+} from "@/organisms";
 import {
   Dialog,
   DialogContent,
@@ -35,7 +36,7 @@ export const Vehicles = () => {
 
   const loadVehicles = useCallback(async () => {
     await getVehicles();
-  }, [getVehicles])
+  }, [getVehicles]);
 
   useEffect(() => {
     loadVehicles();
@@ -62,8 +63,7 @@ export const Vehicles = () => {
     [handleDeleteVehicle, handleEditVehicle]
   );
 
-
-  const { role } = getUser()
+  const { role } = getUser();
 
   return (
     <>
@@ -137,7 +137,7 @@ export const Vehicles = () => {
             />
           )}
         </div>
-        <DataTable columns={columns} data={vehicles} filterColumn="vin" />
+        <VehicleDataTable columns={columns} data={vehicles} />
       </div>
     </>
   );

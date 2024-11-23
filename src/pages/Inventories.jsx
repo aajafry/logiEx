@@ -1,11 +1,12 @@
 import { LoadingButton } from "@/atoms";
 import { inventoryColumns } from "@/config";
 import { useInventories, useSupervisors, useVisibility } from "@/hooks";
+import { DeleteInventoryConfirmation } from "@/molecules";
 import {
-  DataTable,
-  DeleteInventoryConfirmation,
-} from "@/molecules";
-import { CreateInventoryForm, UpdateInventoryFrom } from "@/organisms";
+  CommonDataTable,
+  CreateInventoryForm,
+  UpdateInventoryFrom,
+} from "@/organisms";
 import {
   Dialog,
   DialogContent,
@@ -179,7 +180,11 @@ export const Inventories = () => {
             />
           )}
         </div>
-        <DataTable columns={columns} data={inventories} filterColumn="name" />
+        <CommonDataTable
+          columns={columns}
+          data={inventories}
+          searchColumn="name"
+        />
       </div>
     </>
   );

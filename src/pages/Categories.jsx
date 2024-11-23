@@ -1,11 +1,12 @@
 import { LoadingButton } from "@/atoms";
 import { categoryColumns } from "@/config";
 import { useCategogories, useVisibility } from "@/hooks";
+import { DeleteCategoryConfirmation } from "@/molecules";
 import {
-  DataTable,
-  DeleteCategoryConfirmation,
-} from "@/molecules";
-import { CreateCategoryForm, UpdateCategoryFrom } from "@/organisms";
+  CommonDataTable,
+  CreateCategoryForm,
+  UpdateCategoryFrom,
+} from "@/organisms";
 import {
   Dialog,
   DialogContent,
@@ -136,7 +137,11 @@ export const Categories = () => {
             />
           )}
         </div>
-        <DataTable columns={columns} data={categories} filterColumn="name" />
+        <CommonDataTable
+          columns={columns}
+          data={categories}
+          searchColumn="name"
+        />
       </div>
     </>
   );

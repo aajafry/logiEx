@@ -1,7 +1,6 @@
 import { shipmentItemsColumns } from "@/config/shipmentItemsColumns";
 import { useSales, useShipments, useVisibility } from "@/hooks";
-import { DataTable } from "@/molecules";
-import { UpdateSaleFrom } from "@/organisms";
+import { CommonDataTable, UpdateSaleFrom } from "@/organisms";
 import { Button } from "@/shadcn/components/ui/button";
 import {
   Dialog,
@@ -108,10 +107,10 @@ export const ShipmentItems = () => {
           </p>
         </div>
 
-        <DataTable
+        <CommonDataTable
           columns={columns}
           data={shipment?.items || []}
-          filterColumn="bill_id"
+          searchColumn="bill_id"
         />
       </div>
     </>

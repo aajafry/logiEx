@@ -1,8 +1,12 @@
 import { LoadingButton } from "@/atoms";
 import { vendorColumns } from "@/config";
 import { useVendors, useVisibility } from "@/hooks";
-import { DataTable, DeleteVendorConfirmation } from "@/molecules";
-import { CreateVendorForm, UpdateVendorFrom } from "@/organisms";
+import { DeleteVendorConfirmation } from "@/molecules";
+import {
+  CommonDataTable,
+  CreateVendorForm,
+  UpdateVendorFrom,
+} from "@/organisms";
 import {
   Dialog,
   DialogContent,
@@ -129,7 +133,7 @@ export const Vendors = () => {
             />
           )}
         </div>
-        <DataTable columns={columns} data={vendors} filterColumn="name" />
+        <CommonDataTable columns={columns} data={vendors} searchColumn="name" />
       </div>
     </>
   );

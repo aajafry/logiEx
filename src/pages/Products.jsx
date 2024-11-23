@@ -1,9 +1,19 @@
 import { LoadingButton } from "@/atoms";
 import { productColumns } from "@/config";
 import { useProducts, useVisibility } from "@/hooks";
-import {  DataTable, DeleteProductConfirmation, } from "@/molecules";
-import { CreateProductForm, UpdateProductFrom } from "@/organisms";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/shadcn/components/ui/dialog";
+import { DeleteProductConfirmation } from "@/molecules";
+import {
+  CreateProductForm,
+  ProductDataTable,
+  UpdateProductFrom,
+} from "@/organisms";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/shadcn/components/ui/dialog";
 import { getUser } from "@/utilities";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
@@ -23,7 +33,7 @@ export const Products = () => {
 
   const loadProducts = useCallback(async () => {
     await getProducts();
-  }, [getProducts])
+  }, [getProducts]);
 
   useEffect(() => {
     loadProducts();
@@ -50,7 +60,7 @@ export const Products = () => {
     [handleDeleteProduct, handleEditProduct]
   );
 
-  const { role } = getUser()
+  const { role } = getUser();
 
   return (
     <>
@@ -126,7 +136,7 @@ export const Products = () => {
             />
           )}
         </div>
-        <DataTable columns={columns} data={products} filterColumn="name" />
+        <ProductDataTable columns={columns} data={products} />
       </div>
     </>
   );

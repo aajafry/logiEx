@@ -1,31 +1,39 @@
-import { Actions } from "@/molecules";
+import { DataTableColumnHeader, DataTableRowActions } from "@/molecules";
 import moment from "moment";
 
 export const supervisorColumns = (onEdit, onDelete) => [
   {
     accessorKey: "employee",
-    header: "Employee",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Employee" />
+    ),
     cell: ({ row }) => (
       <div className="capitalize">{row.original.employee?.name}</div>
     ),
   },
   {
     accessorKey: "inventory",
-    header: "Inventory",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Inventory" />
+    ),
     cell: ({ row }) => (
       <div className="capitalize">{row.original.inventory}</div>
     ),
   },
   {
     accessorKey: "hire_date",
-    header: "Hire Date",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Hire Date" />
+    ),
     cell: ({ row }) => (
       <div>{moment(row.original.hire_date).format("YYYY-MMM-DD")}</div>
     ),
   },
   {
     accessorKey: "termination_date",
-    header: "Termination Date",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Termination Date" />
+    ),
     cell: ({ row }) => (
       <div>
         {row.original.termination_date
@@ -36,7 +44,9 @@ export const supervisorColumns = (onEdit, onDelete) => [
   },
   {
     accessorKey: "resign_date",
-    header: "Resign Date",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Resign Date" />
+    ),
     cell: ({ row }) => (
       <div>
         {row.original.resign_date
@@ -47,7 +57,9 @@ export const supervisorColumns = (onEdit, onDelete) => [
   },
   {
     accessorKey: "transfer_date",
-    header: "Transfer Date",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Transfer Date" />
+    ),
     cell: ({ row }) => (
       <div>
         {row.original.transfer_date
@@ -61,7 +73,7 @@ export const supervisorColumns = (onEdit, onDelete) => [
     enableHiding: false,
     cell: ({ row }) => {
       return (
-        <Actions
+        <DataTableRowActions
           row={row}
           onEdit={() => onEdit(row.original.id)}
           onDelete={() =>

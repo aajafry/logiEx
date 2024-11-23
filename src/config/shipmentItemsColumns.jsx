@@ -1,19 +1,26 @@
-import { Actions } from "@/molecules";
+import { DataTableColumnHeader, DataTableRowActions } from "@/molecules";
 
 export const shipmentItemsColumns = (onEdit) => [
   {
     accessorKey: "bill_id",
-    header: "BILL ID",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="BILL ID" />
+    ),
     cell: ({ row }) => <div>{row.original?.sale?.bill_id}</div>,
+    enableHiding: false,
   },
   {
     accessorKey: "inventory",
-    header: "Inventory",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Inventory" />
+    ),
     cell: ({ row }) => <div>{row.original?.sale?.inventory}</div>,
   },
   {
     accessorKey: "customer",
-    header: "customer",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Customer" />
+    ),
     cell: ({ row }) => (
       <div>
         {row.original?.sale?.customer?.name} (
@@ -23,30 +30,72 @@ export const shipmentItemsColumns = (onEdit) => [
   },
   {
     accessorKey: "shipping address",
-    header: "Shipping Address",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Address" />
+    ),
     cell: ({ row }) => <div>{row.original?.sale?.shipping_address}</div>,
+    enableSorting: false,
   },
   {
     accessorKey: "adjustment",
-    header: "Adjustment",
-    cell: ({ row }) => <div>{row.original?.sale?.adjustment}</div>,
+    header: ({ column }) => (
+      <DataTableColumnHeader
+        column={column}
+        title="Adjustment"
+        className="justify-end"
+      />
+    ),
+    cell: ({ row }) => {
+      const adjustment = parseFloat(row.original?.sale?.adjustment);
+
+      // Format the amount as a dollar amount
+      const formatted = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(adjustment);
+
+      return <div className="text-right font-medium">{formatted}</div>;
+    },
   },
   {
     accessorKey: "total price",
-    header: "Total Price",
-    cell: ({ row }) => <div>{row.original?.sale?.total_price}</div>,
+    header: ({ column }) => (
+      <DataTableColumnHeader
+        column={column}
+        title="Total Price"
+        className="justify-end"
+      />
+    ),
+    cell: ({ row }) => {
+      const totalPrice = parseFloat(row.original?.sale?.total_price);
+
+      // Format the amount as a dollar amount
+      const formatted = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(totalPrice);
+
+      return <div className="text-right font-medium">{formatted}</div>;
+    },
   },
   {
     accessorKey: "status",
-    header: "Status",
-    cell: ({ row }) => <div>{row.original?.sale?.status}</div>,
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Status" />
+    ),
+    cell: ({ row }) => (
+      <div className="capitalize">{row.original?.sale?.status}</div>
+    ),
   },
   {
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
       return (
-        <Actions row={row} onEdit={() => onEdit(row.original?.sale?.bill_id)} />
+        <DataTableRowActions
+          row={row}
+          onEdit={() => onEdit(row.original?.sale?.bill_id)}
+        />
       );
     },
   },

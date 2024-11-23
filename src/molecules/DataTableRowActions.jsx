@@ -10,7 +10,7 @@ import {
 } from "@/shadcn/components/ui/dropdown-menu";
 import { MoreHorizontal } from "lucide-react";
 
-export const Actions = ({ row, onPreview, onEdit, onDelete }) => {
+export const DataTableRowActions = ({ row, onPreview, onEdit, onDelete }) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

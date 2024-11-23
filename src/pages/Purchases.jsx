@@ -2,11 +2,12 @@ import { LoadingButton } from "@/atoms";
 import { purchaseColumns } from "@/config";
 import { useVisibility } from "@/hooks";
 import { usePurchases } from "@/hooks/usePurchases";
+import { DeletePurchaseConfirmation } from "@/molecules";
 import {
-  DataTable,
-  DeletePurchaseConfirmation,
-} from "@/molecules";
-import { CreatePurchaseForm, UpdatePurchaseFrom } from "@/organisms";
+  CreatePurchaseForm,
+  PurchaseDataTable,
+  UpdatePurchaseFrom,
+} from "@/organisms";
 import {
   Dialog,
   DialogContent,
@@ -133,7 +134,7 @@ export const Purchases = () => {
             />
           )}
         </div>
-        <DataTable columns={columns} data={purchases} filterColumn="vendor" />
+        <PurchaseDataTable columns={columns} data={purchases} />
       </div>
     </>
   );

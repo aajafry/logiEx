@@ -1,32 +1,28 @@
-import { Button } from "@/shadcn/components/ui/button";
-import { ArrowUpDown } from "lucide-react";
+import { DataTableColumnHeader } from "@/molecules";
 
 export const inventoryProductColumns = () => [
   {
     accessorKey: "mr_id",
-    header: "MR ID",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="MR ID" />
+    ),
     cell: ({ row }) => <div>{row.getValue("mr_id")}</div>,
+    enableHiding: false,
   },
   {
     accessorKey: "product",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Product
-          <ArrowUpDown />
-        </Button>
-      );
-    },
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Product" />
+    ),
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("product")}</div>
     ),
   },
   {
     accessorKey: "quantity",
-    header: "Quantity",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Quantity" />
+    ),
     cell: ({ row }) => <div>{row.getValue("quantity")} units</div>,
   },
 ];

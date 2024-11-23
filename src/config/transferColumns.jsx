@@ -1,47 +1,56 @@
-import { Actions } from "@/molecules";
+import { DataTableColumnHeader, DataTableRowActions } from "@/molecules";
 import moment from "moment";
 
-export const transferColumns = (
-  // onPreview, 
-  onEdit, 
-  onDelete
-) => [
+export const transferColumns = (onEdit, onDelete) => [
   {
     accessorKey: "trf_id",
-    header: "TRF ID",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="TRF ID" />
+    ),
     cell: ({ row }) => (
       <div className="uppercase">{row.getValue("trf_id")}</div>
     ),
+    enableHiding: false,
   },
   {
     accessorKey: "source_inventory",
-    header: "Source",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Source" />
+    ),
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("source_inventory")}</div>
     ),
   },
   {
     accessorKey: "destination_inventory",
-    header: "Destination",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Destination" />
+    ),
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("destination_inventory")}</div>
     ),
   },
   {
     accessorKey: "transfer_date",
-    header: "Transfer Date",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Transfer Date" />
+    ),
     cell: ({ row }) => (
       <div>{moment(row.original.transfer_date).format("YYYY-MMM-DD")}</div>
     ),
+    filterFn: (row, id, value) => {
+      const rowDate = new Date(row.getValue(id));
+      const [startDate, endDate] = value;
+      return rowDate >= startDate && rowDate <= endDate;
+    },
   },
   {
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
       return (
-        <Actions
+        <DataTableRowActions
           row={row}
-          // onPreview={() => onPreview(row.original.trf_id)}
           onEdit={() => onEdit(row.original.trf_id)}
           onDelete={() => onDelete(row.original.trf_id)}
         />

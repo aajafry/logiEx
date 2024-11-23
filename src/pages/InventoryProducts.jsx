@@ -1,6 +1,6 @@
 import { inventoryProductColumns } from "@/config";
 import { useInventories } from "@/hooks";
-import { DataTable } from "@/molecules";
+import { CommonDataTable } from "@/organisms";
 import { Button } from "@/shadcn/components/ui/button";
 import { getUser } from "@/utilities";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -62,10 +62,10 @@ export const InventoryProducts = () => {
         </div>
 
         <>
-          <DataTable
+          <CommonDataTable
             columns={columns}
             data={inventory?.inventories || []}
-            filterColumn="product"
+            searchColumn="product"
           />
         </>
       </div>

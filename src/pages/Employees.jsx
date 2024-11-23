@@ -1,11 +1,12 @@
 import { LoadingButton } from "@/atoms";
 import { employeeColumns } from "@/config";
 import { useEmployees, useVisibility } from "@/hooks";
+import { DeleteEmployeeConfirmation } from "@/molecules";
 import {
-  DataTable,
-  DeleteEmployeeConfirmation,
-} from "@/molecules";
-import { CreateEmployeeForm, UpdateEmployeeFrom } from "@/organisms";
+  CreateEmployeeForm,
+  EmployeeDataTable,
+  UpdateEmployeeFrom,
+} from "@/organisms";
 import {
   Dialog,
   DialogContent,
@@ -151,11 +152,8 @@ export const Employees = () => {
             />
           )}
         </div>
-        <DataTable
-          columns={columns}
-          data={filteredEmployees}
-          filterColumn="email"
-        />
+        <EmployeeDataTable columns={columns} data={filteredEmployees} />
+        
       </div>
     </>
   );

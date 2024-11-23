@@ -1,11 +1,12 @@
 import { LoadingButton } from "@/atoms";
 import { supervisorColumns } from "@/config";
 import { useSupervisors, useVisibility } from "@/hooks";
+import { DeleteSupervisorConfirmation } from "@/molecules";
 import {
-  DataTable,
-  DeleteSupervisorConfirmation,
-} from "@/molecules";
-import { CreateSupervisorForm, UpdateSupervisorFrom } from "@/organisms";
+  CommonDataTable,
+  CreateSupervisorForm,
+  UpdateSupervisorFrom,
+} from "@/organisms";
 import {
   Dialog,
   DialogContent,
@@ -34,10 +35,9 @@ export const Supervisors = () => {
     handleRemoveSupervisor,
   } = useSupervisors();
 
-
   const loadSupervisors = useCallback(async () => {
-    await getSupervisors()
-  }, [getSupervisors])
+    await getSupervisors();
+  }, [getSupervisors]);
 
   useEffect(() => {
     loadSupervisors();
@@ -106,7 +106,7 @@ export const Supervisors = () => {
             />
           </DialogContent>
         </Dialog>
-      )} 
+      )}
 
       {/* delete employee */}
       {["admin"].includes(role) && (
@@ -141,10 +141,10 @@ export const Supervisors = () => {
             />
           )}
         </div>
-        <DataTable
+        <CommonDataTable
           columns={columns}
           data={supervisors}
-          filterColumn="inventory"
+          searchColumn="inventory"
         />
       </div>
     </>

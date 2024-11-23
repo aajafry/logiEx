@@ -1,47 +1,44 @@
-import { Actions } from "@/molecules";
-import { Button } from "@/shadcn/components/ui/button";
-import { ArrowUpDown } from "lucide-react";
-
+import { DataTableColumnHeader, DataTableRowActions } from "@/molecules";
 
 export const customerColumns = (onEdit, onDelete) => [
   {
     accessorKey: "name",
-    header: "Name",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Name" />
+    ),
     cell: ({ row }) => <div className="capitalize">{row.getValue("name")}</div>,
   },
   {
     accessorKey: "email",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Email
-          <ArrowUpDown />
-        </Button>
-      );
-    },
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Email" />
+    ),
     cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
   },
   {
     accessorKey: "phone",
-    header: "Phone",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Phone" />
+    ),
     cell: ({ row }) => <div>{row.getValue("phone")}</div>,
+    enableSorting: false,
   },
   {
     accessorKey: "address",
-    header: "Address",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Address" />
+    ),
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("address")}</div>
     ),
+    enableSorting: false,
   },
   {
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
       return (
-        <Actions
+        <DataTableRowActions
           row={row}
           onEdit={() => onEdit(row.original.id)}
           onDelete={() => onDelete(row.original.id, row.original.name)}

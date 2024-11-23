@@ -1,11 +1,12 @@
 import { LoadingButton } from "@/atoms";
 import { shipmentColumns } from "@/config";
 import { useShipments, useVisibility } from "@/hooks";
+import { DeleteShipmentConfirmation } from "@/molecules";
 import {
-  DataTable,
-  DeleteShipmentConfirmation,
-} from "@/molecules";
-import { CreateShipmentForm, UpdateShipmentFrom } from "@/organisms";
+  CreateShipmentForm,
+  ShipmentDataTable,
+  UpdateShipmentFrom,
+} from "@/organisms";
 import {
   Dialog,
   DialogContent,
@@ -36,7 +37,7 @@ export const Shipments = () => {
 
   const loadShipments = useCallback(async () => {
     await getShipments();
-  }, [getShipments])
+  }, [getShipments]);
 
   useEffect(() => {
     loadShipments();
@@ -168,11 +169,7 @@ export const Shipments = () => {
             />
           )}
         </div>
-        <DataTable
-          columns={columns}
-          data={filterredShipments}
-          filterColumn="shipment_id"
-        />
+        <ShipmentDataTable columns={columns} data={filterredShipments} />
       </div>
     </>
   );
