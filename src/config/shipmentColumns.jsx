@@ -38,6 +38,10 @@ export const shipmentColumns = (onPreview, onEdit, onDelete) => [
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("status")}</div>
     ),
+    enableColumnFilter: true,
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id));
+    },
   },
   {
     accessorKey: "shipment_date",

@@ -25,6 +25,10 @@ export const vehicleColumns = (onEdit, onDelete) => [
       <DataTableColumnHeader column={column} title="Type" />
     ),
     cell: ({ row }) => <div className="capitalize">{row.getValue("type")}</div>,
+    enableColumnFilter: true,
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id));
+    },
   },
   {
     accessorKey: "plate_number",

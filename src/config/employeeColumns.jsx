@@ -29,6 +29,10 @@ export const employeeColumns = (onEdit, onDelete) => [
       <DataTableColumnHeader column={column} title="Role" />
     ),
     cell: ({ row }) => <div className="capitalize">{row.getValue("role")}</div>,
+    enableColumnFilter: true,
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id));
+    },
   },
   {
     accessorKey: "address",

@@ -18,6 +18,10 @@ export const purchaseColumns = (onEdit, onDelete) => [
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("vendor")}</div>
     ),
+    enableColumnFilter: true,
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id));
+    },
   },
   {
     accessorKey: "inventory",
@@ -27,6 +31,10 @@ export const purchaseColumns = (onEdit, onDelete) => [
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("inventory")}</div>
     ),
+    enableColumnFilter: true,
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id));
+    },
   },
   {
     accessorKey: "adjustment",

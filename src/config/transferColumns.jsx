@@ -20,6 +20,10 @@ export const transferColumns = (onEdit, onDelete) => [
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("source_inventory")}</div>
     ),
+    enableColumnFilter: true,
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id));
+    },
   },
   {
     accessorKey: "destination_inventory",
@@ -29,6 +33,10 @@ export const transferColumns = (onEdit, onDelete) => [
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("destination_inventory")}</div>
     ),
+    enableColumnFilter: true,
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id));
+    },
   },
   {
     accessorKey: "transfer_date",

@@ -26,7 +26,11 @@ export const DataTableFilterOption = ({ label, column, options }) => {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline" size="sm" className="ml-2 h-8 hidden md:flex border-dashed">
+        <Button
+          variant="outline"
+          size="sm"
+          className="ml-2 h-8 hidden md:flex border-dashed"
+        >
           <PlusCircledIcon className="mr-2 h-4 w-4" />
           <span className="capitalize">{label}</span>
           {selectedValues.size > 0 && (
@@ -34,7 +38,7 @@ export const DataTableFilterOption = ({ label, column, options }) => {
               <Separator orientation="vertical" className="mx-2 h-4" />
               <Badge
                 variant="secondary"
-                className="rounded-sm px-1 font-normal md:hidden"
+                className="rounded-sm px-1 font-normal hidden md:block"
               >
                 {selectedValues.size}
               </Badge>

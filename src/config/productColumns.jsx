@@ -17,6 +17,9 @@ export const productColumns = (onEdit, onDelete) => [
       <div className="capitalize">{row.getValue("category")}</div>
     ),
     enableColumnFilter: true,
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id));
+    },
   },
   {
     accessorKey: "price",

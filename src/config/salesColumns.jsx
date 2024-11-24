@@ -20,6 +20,10 @@ export const salesColumns = (onEdit, onDelete) => [
     cell: ({ row }) => (
       <div className="uppercase">{row.getValue("inventory")}</div>
     ),
+    enableColumnFilter: true,
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id));
+    },
   },
   {
     accessorKey: "customer",
@@ -90,6 +94,10 @@ export const salesColumns = (onEdit, onDelete) => [
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("status")}</div>
     ),
+    enableColumnFilter: true,
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id));
+    },
   },
   {
     accessorKey: "sale_date",
