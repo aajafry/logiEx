@@ -1,0 +1,17 @@
+name: "logiEx"
+version: "3"
+
+services:
+  frontend:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: production
+    container_name: frontend
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "4173:4173"
+    environment:
+      - NODE_ENV=production
