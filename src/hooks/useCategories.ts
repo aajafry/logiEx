@@ -12,7 +12,6 @@ import { toast } from "sonner";
 
 const CATEGORIES_URL = import.meta.env.VITE_CATEGORIES;
 
-
 export const useCategories = () => {
   const [categories, setCategories] = useState<ICategory[]>([]);
   const [loading, setLoading] = useState<boolean>(false);

@@ -18,9 +18,7 @@ type PropsTypes<TData> = {
   table: Table<TData>;
 };
 
-export const DataTablePagination = <TData,>({
-  table,
-}: PropsTypes<TData>) => {
+export const DataTablePagination = <TData,>({ table }: PropsTypes<TData>) => {
   const { pageIndex, pageSize } = table?.getState()?.pagination ?? {};
   const totalPages = table?.getPageCount() ?? 1;
 

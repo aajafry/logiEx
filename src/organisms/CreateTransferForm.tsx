@@ -178,11 +178,11 @@ export const CreateTransferForm = ({
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select an inventory..." />
+                      <SelectValue placeholder="Select an Inventory..." />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <ScrollArea className="h-42 w-auto rounded-md border">
+                    <ScrollArea className="h-44 w-auto rounded-md border">
                       {inventoryOptions.map((inventory) => (
                         <SelectItem
                           className="capitalize"
@@ -212,11 +212,11 @@ export const CreateTransferForm = ({
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select an inventory..." />
+                      <SelectValue placeholder="Select an Inventory..." />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <ScrollArea className="h-42 w-auto rounded-md border">
+                    <ScrollArea className="h-44 w-auto rounded-md border">
                       {inventoryOptions.map((inventory) => (
                         <SelectItem
                           className="capitalize"
@@ -256,11 +256,11 @@ export const CreateTransferForm = ({
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select an MR ID..." />
+                          <SelectValue placeholder="Select a MR ID..." />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <ScrollArea className="h-42 w-auto rounded-md border">
+                        <ScrollArea className="h-44 w-auto rounded-md border">
                           {mrIds.map((mrId) => (
                             <SelectItem
                               className="capitalize"
@@ -290,11 +290,11 @@ export const CreateTransferForm = ({
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select an product..." />
+                          <SelectValue placeholder="Select a Product..." />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <ScrollArea className="h-42 w-auto rounded-md border">
+                        <ScrollArea className="h-44 w-auto rounded-md border">
                           {Array.isArray(productNames[index]) &&
                             productNames[index].map((product) => (
                               <SelectItem

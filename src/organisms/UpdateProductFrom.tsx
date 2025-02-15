@@ -127,11 +127,11 @@ export const UpdateProductFrom = ({
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder={`Select Category.`} />
+                          <SelectValue placeholder={`Select a Category...`} />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <ScrollArea className="h-42 w-auto rounded-md border">
+                        <ScrollArea className="h-44 w-auto rounded-md border">
                           {categoriesOptions.map((category) => (
                             <SelectItem
                               className="capitalize"

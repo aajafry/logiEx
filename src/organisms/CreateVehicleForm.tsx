@@ -148,20 +148,20 @@ export const CreateVehicleForm = ({
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder={`Select Vehicle Type.`} />
+                      <SelectValue placeholder={`Select a Vehicle Type...`} />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <ScrollArea className="h-42 w-auto rounded-md border">
-                    {vehicleOptions.map((type) => (
-                      <SelectItem
-                        className="capitalize"
-                        key={type}
-                        value={type}
-                      >
-                        {type}
-                      </SelectItem>
-                    ))}
+                    <ScrollArea className="h-44 w-auto rounded-md border">
+                      {vehicleOptions.map((type) => (
+                        <SelectItem
+                          className="capitalize"
+                          key={type}
+                          value={type}
+                        >
+                          {type}
+                        </SelectItem>
+                      ))}
                     </ScrollArea>
                   </SelectContent>
                 </Select>

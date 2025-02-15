@@ -12,7 +12,6 @@ import { toast } from "sonner";
 
 const CUSTOMERS_URL = import.meta.env.VITE_CUSTOMERS;
 
-
 export const useCustomers = () => {
   const [customers, setCustomers] = useState<ICustomer[]>([]);
   const [loading, setLoading] = useState<boolean>(false);

@@ -41,7 +41,9 @@ export const InputField: FC<PropsType> = ({
               disabled={disabled}
               autoComplete="off"
               {...field}
-              value={field.value as string | number | readonly string[] | undefined}
+              value={
+                field.value as string | number | readonly string[] | undefined
+              }
             />
           </FormControl>
           <FormMessage />

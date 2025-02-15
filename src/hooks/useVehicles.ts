@@ -12,7 +12,6 @@ import { toast } from "sonner";
 
 const VEHICLES_URL = import.meta.env.VITE_VEHICLES;
 
-
 export const useVehicles = () => {
   const [vehicles, setVehicles] = useState<IVehicle[]>([]);
   const [loading, setLoading] = useState<boolean>(false);

@@ -13,7 +13,6 @@ import { toast } from "sonner";
 const SALES_URL = import.meta.env.VITE_SALES;
 const SALE_PRODUCTS_URL = import.meta.env.VITE_SALE_PRODUCTS;
 
-
 export const useSales = () => {
   const [sales, setSales] = useState<ISale[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -127,36 +126,29 @@ export const useSales = () => {
     );
   };
 
-  const updateSaleProduct = useCallback(
-    async (id: string, data: any) => {
-      const token = getToken();
-      setLoading(true);
-      try {
-        const response = await updateResource(
-          `${SALE_PRODUCTS_URL}/${id}`,
-          data,
-          token!
+  const updateSaleProduct = useCallback(async (id: string, data: any) => {
+    const token = getToken();
+    setLoading(true);
+    try {
+      const response = await updateResource(
+        `${SALE_PRODUCTS_URL}/${id}`,
+        data,
+        token!
+      );
+      if (response.status === 200) {
+        toast.success(
+          (response && (response.data as any).message) || "Updated successfully"
         );
-        if (response.status === 200) {
-          toast.success(
-            (response && (response.data as any).message) ||
-              "Updated successfully"
-          );
-          return response && ((response.data as any).sale as ISaleProduct);
-        } else {
-          throw new Error(response && (response.data as any).message);
-        }
-      } catch (error: unknown) {
-        handleError(
-          error,
-          "An error occurred while updating the Sale Product."
-        );
-      } finally {
-        setLoading(false);
+        return response && ((response.data as any).sale as ISaleProduct);
+      } else {
+        throw new Error(response && (response.data as any).message);
       }
-    },
-    []
-  );
+    } catch (error: unknown) {
+      handleError(error, "An error occurred while updating the Sale Product.");
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   const deleteSaleProduct = useCallback(async (id: string) => {
     const token = getToken();

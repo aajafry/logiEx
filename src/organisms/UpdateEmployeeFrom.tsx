@@ -145,20 +145,20 @@ export const UpdateEmployeeFrom = ({
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder={`Select Employee Role.`} />
+                          <SelectValue placeholder="Select an Employee Role..." />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <ScrollArea className="h-42 w-auto rounded-md border">
-                        {roleOptions.map((role) => (
-                          <SelectItem
-                            className="capitalize"
-                            key={role}
-                            value={role}
-                          >
-                            {role}
-                          </SelectItem>
-                        ))}
+                        <ScrollArea className="h-44 w-auto rounded-md border">
+                          {roleOptions.map((role) => (
+                            <SelectItem
+                              className="capitalize"
+                              key={role}
+                              value={role}
+                            >
+                              {role}
+                            </SelectItem>
+                          ))}
                         </ScrollArea>
                       </SelectContent>
                     </Select>

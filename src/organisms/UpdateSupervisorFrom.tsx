@@ -1,11 +1,9 @@
-import { DateField } from "@/atoms";
+import { DateField, LoadingButton } from "@/atoms";
 import { useSupervisors } from "@/hooks";
 import { Form } from "@/shadcn/components/ui/form";
 import moment from "moment";
 import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
-
-import { LoadingButton } from "@/atoms";
 import { ISupervisor } from "@/interfaces";
 
 export const UpdateSupervisorFrom = ({

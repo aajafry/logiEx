@@ -149,16 +149,16 @@ export const CreateShipmentForm = ({
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select a captain..." />
+                      <SelectValue placeholder="Select a Captain..." />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <ScrollArea className="h-42 w-auto rounded-md border">
-                    {captainOptions.map((captain) => (
-                      <SelectItem key={captain.value} value={captain.value}>
-                        {captain.label}
-                      </SelectItem>
-                    ))}
+                    <ScrollArea className="h-44 w-auto rounded-md border">
+                      {captainOptions.map((captain) => (
+                        <SelectItem key={captain.value} value={captain.value}>
+                          {captain.label}
+                        </SelectItem>
+                      ))}
                     </ScrollArea>
                   </SelectContent>
                 </Select>
@@ -179,16 +179,16 @@ export const CreateShipmentForm = ({
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select a vehicle..." />
+                      <SelectValue placeholder="Select a Vehicle..." />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <ScrollArea className="h-42 w-auto rounded-md border">
-                    {vehicleOptions.map((vehicle) => (
-                      <SelectItem key={vehicle.value} value={vehicle.value}>
-                        {vehicle.label}
-                      </SelectItem>
-                    ))}
+                    <ScrollArea className="h-44 w-auto rounded-md border">
+                      {vehicleOptions.map((vehicle) => (
+                        <SelectItem key={vehicle.value} value={vehicle.value}>
+                          {vehicle.label}
+                        </SelectItem>
+                      ))}
                     </ScrollArea>
                   </SelectContent>
                 </Select>
@@ -213,12 +213,12 @@ export const CreateShipmentForm = ({
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <ScrollArea className="h-42 w-auto rounded-md border">
-                    {shipmentOptions.map((status) => (
-                      <SelectItem key={status} value={status}>
-                        {status}
-                      </SelectItem>
-                    ))}
+                    <ScrollArea className="h-44 w-auto rounded-md border">
+                      {shipmentOptions.map((status) => (
+                        <SelectItem key={status} value={status}>
+                          {status}
+                        </SelectItem>
+                      ))}
                     </ScrollArea>
                   </SelectContent>
                 </Select>

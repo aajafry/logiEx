@@ -93,7 +93,7 @@ export const supervisorColumns = (
             onDelete(
               row.original.id,
               row.original.employee?.name || "",
-              row.original.inventory,
+              row.original.inventory
             )
           }
         />

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { DataTableBody, DataTableSearchOption } from "@/atoms";
 import { IPurchase } from "@/interfaces";
 import {
@@ -10,17 +9,17 @@ import {
 import { Button } from "@/shadcn/components/ui/button";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import {
+  Column,
+  ColumnDef,
+  ColumnFiltersState,
   getCoreRowModel,
   getFacetedRowModel,
   getFacetedUniqueValues,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
-  useReactTable,
   SortingState,
-  ColumnFiltersState,
-  Column,
-  ColumnDef,
+  useReactTable,
 } from "@tanstack/react-table";
 import { useCallback, useMemo, useState } from "react";
 import { DateRange } from "react-day-picker";

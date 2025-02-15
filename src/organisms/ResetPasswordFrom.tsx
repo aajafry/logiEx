@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { LoadingButton } from "@/atoms";
 import { InputField } from "@/molecules";
 import { resetPassword } from "@/services";
@@ -10,9 +9,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
-export const ResetPasswordFrom = ({ token }: {
-  token: string;
-}) => {
+export const ResetPasswordFrom = ({ token }: { token: string }) => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const resetPasswordForm = useForm({
@@ -31,12 +28,17 @@ export const ResetPasswordFrom = ({ token }: {
     }
     setLoading(true);
     try {
-      const result = await resetPassword(newPassword, token) as { message: string };
+      const result = (await resetPassword(newPassword, token)) as {
+        message: string;
+      };
       toast.success(result.message);
       localStorage.removeItem("logiEx-token");
       navigate("/authentication", { replace: true });
     } catch (error: unknown) {
-      const errorMessage = (error instanceof Error) ? error.message : "An error occurred while submitting the reset password";
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "An error occurred while submitting the reset password";
       toast.error(errorMessage);
     } finally {
       reset();

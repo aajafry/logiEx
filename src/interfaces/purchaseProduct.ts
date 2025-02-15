@@ -1,4 +1,3 @@
-
 export interface IPurchaseProduct {
   id: string;
   mr_id: string;

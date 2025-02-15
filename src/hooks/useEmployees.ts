@@ -12,7 +12,6 @@ import { toast } from "sonner";
 
 const USERS_URL = import.meta.env.VITE_USERS;
 
-
 export const useEmployees = () => {
   const [employees, setEmployees] = useState<IEmployee[]>([]);
   const [loading, setLoading] = useState<boolean>(false);

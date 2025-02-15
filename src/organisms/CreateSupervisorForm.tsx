@@ -1,4 +1,4 @@
-import { DateField } from "@/atoms";
+import { DateField, LoadingButton } from "@/atoms";
 import { useEmployees, useInventories, useSupervisors } from "@/hooks";
 import {
   Form,
@@ -13,7 +13,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import moment from "moment";
 import { useCallback, useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
-import { LoadingButton } from "@/atoms";
 import {
   Select,
   SelectContent,
@@ -113,11 +112,11 @@ export const CreateSupervisorForm = ({
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder={`Select Supervisor.`} />
+                      <SelectValue placeholder={`Select a Supervisor...`} />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <ScrollArea className="h-42 w-auto rounded-md border">
+                    <ScrollArea className="h-44 w-auto rounded-md border">
                       {employeesOptions.map((employee) => (
                         <SelectItem
                           className="capitalize"
@@ -147,11 +146,11 @@ export const CreateSupervisorForm = ({
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder={`Select Inventory.`} />
+                      <SelectValue placeholder={`Select an Inventory...`} />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <ScrollArea className="h-42 w-auto rounded-md border">
+                    <ScrollArea className="h-44 w-auto rounded-md border">
                       {inventoriesOptions.map((inventory) => (
                         <SelectItem
                           className="capitalize"

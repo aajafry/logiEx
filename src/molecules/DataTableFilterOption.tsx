@@ -8,7 +8,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@/shadcn/components/ui/command.jsx";
+} from "@/shadcn/components/ui/command";
 import {
   Popover,
   PopoverContent,
@@ -22,7 +22,7 @@ import { FC } from "react";
 type PropsTypes = {
   label: string;
   column: any;
-  options: (string | undefined)[] ;
+  options: (string | undefined)[];
 };
 
 export const DataTableFilterOption: FC<PropsTypes> = ({

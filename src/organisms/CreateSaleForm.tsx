@@ -1,4 +1,4 @@
-import { DateField } from "@/atoms";
+import { DateField, LoadingButton } from "@/atoms";
 import { InputField } from "@/molecules";
 import { useCustomers, useInventories, useSales } from "@/hooks";
 import { Button } from "@/shadcn/components/ui/button";
@@ -17,7 +17,6 @@ import moment from "moment";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import { salesStatusEnum as salesOptions } from "@/utilities";
-import { LoadingButton } from "@/atoms";
 import {
   Select,
   SelectContent,
@@ -184,11 +183,11 @@ export const CreateSaleForm = ({
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder={`Select Inventory...`} />
+                      <SelectValue placeholder={`Select an Inventory...`} />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <ScrollArea className="h-42 w-auto rounded-md border">
+                    <ScrollArea className="h-44 w-auto rounded-md border">
                       {inventoryOptions.map((inventory) => (
                         <SelectItem
                           className="capitalize"
@@ -218,11 +217,11 @@ export const CreateSaleForm = ({
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder={`Select Customer...`} />
+                      <SelectValue placeholder={`Select a Customer...`} />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <ScrollArea className="h-42 w-auto rounded-md border">
+                    <ScrollArea className="h-44 w-auto rounded-md border">
                       {customerOptions.map((customer) => (
                         <SelectItem
                           className="capitalize"
@@ -252,11 +251,11 @@ export const CreateSaleForm = ({
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder={`Select Status.`} />
+                      <SelectValue placeholder={`Select a Status...`} />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <ScrollArea className="h-42 w-auto rounded-md border">
+                    <ScrollArea className="h-44 w-auto rounded-md border">
                       {salesOptions.map((status) => (
                         <SelectItem
                           className="capitalize"
@@ -300,11 +299,11 @@ export const CreateSaleForm = ({
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder={`Select Product...`} />
+                          <SelectValue placeholder={`Select a Product...`} />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <ScrollArea className="h-42 w-auto rounded-md border">
+                        <ScrollArea className="h-44 w-auto rounded-md border">
                           {productOptions.map((product) => (
                             <SelectItem
                               className="capitalize"

@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from "@/shadcn/components/ui/card";
 import { TabsContent } from "@/shadcn/components/ui/tabs";
-import { LoginForm } from "./index.js";
+import { LoginForm } from "./index";
 
 export const LoginSection = ({
   setOpen,

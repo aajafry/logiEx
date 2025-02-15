@@ -1,8 +1,7 @@
-import { DateField } from "@/atoms";
+import { DateField, LoadingButton } from "@/atoms";
 import { InputField } from "@/molecules";
 import { useCustomers, useInventories, useSales } from "@/hooks";
 import { Button } from "@/shadcn/components/ui/button";
-import { LoadingButton } from "@/atoms";
 import {
   Form,
   FormControl,
@@ -29,7 +28,6 @@ import { Loader2 } from "lucide-react";
 import { IProduct, ISale, ISaleProduct } from "@/interfaces";
 import { ScrollArea } from "@/shadcn/components/ui/scroll-area";
 
-/* eslint-disable no-unused-vars */
 export const UpdateSaleFrom = ({
   saleBillId,
   onUpdateSale,
@@ -292,11 +290,11 @@ export const UpdateSaleFrom = ({
                       >
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Select Customer." />
+                            <SelectValue placeholder="Select a Customer..." />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <ScrollArea className="h-42 w-auto rounded-md border">
+                          <ScrollArea className="h-44 w-auto rounded-md border">
                             {customerOptions.map((option) => (
                               <SelectItem
                                 className="capitalize"
@@ -338,11 +336,11 @@ export const UpdateSaleFrom = ({
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder={`Select Status.`} />
+                        <SelectValue placeholder={`Select a Status...`} />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <ScrollArea className="h-42 w-auto rounded-md border">
+                      <ScrollArea className="h-44 w-auto rounded-md border">
                         {salesOptions.map((status) => (
                           <SelectItem
                             className="capitalize"
@@ -457,7 +455,7 @@ export const UpdateSaleFrom = ({
                       >
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Select a product..." />
+                            <SelectValue placeholder="Select a Product..." />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>

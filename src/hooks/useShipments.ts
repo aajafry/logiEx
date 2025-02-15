@@ -13,7 +13,6 @@ import { toast } from "sonner";
 const SHIPMENTS_URL = import.meta.env.VITE_SHIPMENTS;
 const SHIPMENT_PRODUCTS_URL = import.meta.env.VITE_SHIPMENT_PRODUCTS;
 
-
 export const useShipments = () => {
   const [shipments, setShipments] = useState<IShipment[]>([]);
   const [loading, setLoading] = useState<boolean>(false);

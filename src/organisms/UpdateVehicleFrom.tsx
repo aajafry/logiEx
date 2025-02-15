@@ -1,6 +1,7 @@
-import { InputField } from "@/molecules";
 import { LoadingButton } from "@/atoms";
 import { useVehicles } from "@/hooks";
+import { IVehicle } from "@/interfaces";
+import { InputField } from "@/molecules";
 import {
   Form,
   FormControl,
@@ -9,11 +10,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/shadcn/components/ui/form";
-import { updateVehicleSchema } from "@/validation";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useCallback, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { vehicleTypesEnum as vehicleOptions } from "@/utilities";
+import { ScrollArea } from "@/shadcn/components/ui/scroll-area";
 import {
   Select,
   SelectContent,
@@ -21,9 +18,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/shadcn/components/ui/select";
+import { vehicleTypesEnum as vehicleOptions } from "@/utilities";
+import { updateVehicleSchema } from "@/validation";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
-import { IVehicle } from "@/interfaces";
-import { ScrollArea } from "@/shadcn/components/ui/scroll-area";
+import { useCallback, useEffect } from "react";
+import { useForm } from "react-hook-form";
 
 export const UpdateVehicleFrom = ({
   vehicleVIN,
@@ -168,11 +168,13 @@ export const UpdateVehicleFrom = ({
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder={`Select Vehicle Type.`} />
+                          <SelectValue
+                            placeholder={`Select a Vehicle Type...`}
+                          />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <ScrollArea className="h-42 w-auto rounded-md border">
+                        <ScrollArea className="h-44 w-auto rounded-md border">
                           {vehicleOptions.map((type) => (
                             <SelectItem
                               className="capitalize"

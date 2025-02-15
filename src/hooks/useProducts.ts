@@ -12,7 +12,6 @@ import { toast } from "sonner";
 
 const PRODUCTS_URL = import.meta.env.VITE_PRODUCTS;
 
-
 export const useProducts = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState<boolean>(false);

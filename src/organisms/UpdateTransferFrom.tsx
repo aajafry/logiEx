@@ -311,11 +311,11 @@ export const UpdateTransferFrom = ({
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select an MR ID..." />
+                          <SelectValue placeholder="Select a MR ID..." />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <ScrollArea className="h-42 w-auto rounded-md border">
+                        <ScrollArea className="h-44 w-auto rounded-md border">
                           {mrIdOptions.map((mrId) => (
                             <SelectItem
                               className="capitalize"
@@ -345,11 +345,11 @@ export const UpdateTransferFrom = ({
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select an product..." />
+                          <SelectValue placeholder="Select a Product..." />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <ScrollArea className="h-42 w-auto rounded-md border">
+                        <ScrollArea className="h-44 w-auto rounded-md border">
                           {Array.isArray(productOptions[index]) &&
                             productOptions[index]?.map((product) => (
                               <SelectItem

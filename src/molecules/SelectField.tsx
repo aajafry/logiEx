@@ -5,6 +5,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/shadcn/components/ui/form";
+import { ScrollArea } from "@/shadcn/components/ui/scroll-area";
 import {
   Select,
   SelectContent,
@@ -27,7 +28,12 @@ type PropsType = {
     | string[];
 };
 
-export const SelectField: FC<PropsType> = ({ control, name, label, options }) => {
+export const SelectField: FC<PropsType> = ({
+  control,
+  name,
+  label,
+  options,
+}) => {
   // Normalize options to always be an array of { value, label }
   const normalizedOptions =
     typeof options[0] === "string"
@@ -41,13 +47,17 @@ export const SelectField: FC<PropsType> = ({ control, name, label, options }) =>
       render={({ field }) => (
         <FormItem>
           <FormLabel>{label}</FormLabel>
-          <Select onValueChange={field.onChange} defaultValue={field.value as string}>
+          <Select
+            onValueChange={field.onChange}
+            defaultValue={field.value as string}
+          >
             <FormControl>
               <SelectTrigger>
                 <SelectValue placeholder={`Select ${label}.`} />
               </SelectTrigger>
             </FormControl>
             <SelectContent>
+              <ScrollArea className="h-44 w-auto rounded-md border">
               {normalizedOptions.map((option) => (
                 <SelectItem
                   className="capitalize"
@@ -57,6 +67,7 @@ export const SelectField: FC<PropsType> = ({ control, name, label, options }) =>
                   {option?.label}
                 </SelectItem>
               ))}
+              </ScrollArea>
             </SelectContent>
           </Select>
           <FormMessage />

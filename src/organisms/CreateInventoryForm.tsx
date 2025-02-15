@@ -22,7 +22,6 @@ export const CreateInventoryForm = ({
   const { reset, handleSubmit, control } = createInventoryForm;
 
   const handleCreateInventorySubmit = async (data: IInventory) => {
-    
     const formattedData = {
       ...data,
       name: data.name.trim(),
@@ -31,7 +30,7 @@ export const CreateInventoryForm = ({
       address: data.address.trim(),
       description: data.description?.trim(),
     };
-    
+
     const newInventory = await createInventory(formattedData);
     if (newInventory) {
       onAddInventory(newInventory);

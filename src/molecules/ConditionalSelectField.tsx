@@ -5,6 +5,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/shadcn/components/ui/form";
+import { ScrollArea } from "@/shadcn/components/ui/scroll-area";
 import {
   Select,
   SelectContent,
@@ -54,15 +55,17 @@ export const ConditionalSelectField: FC<PropsType> = ({
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  {normalizedOptions.map((option) => (
-                    <SelectItem
-                      className="capitalize"
-                      key={option?.value}
-                      value={option?.label}
-                    >
-                      {option?.label}
-                    </SelectItem>
-                  ))}
+                  <ScrollArea className="h-44 w-auto rounded-md border">
+                    {normalizedOptions.map((option) => (
+                      <SelectItem
+                        className="capitalize"
+                        key={option?.value}
+                        value={option?.label}
+                      >
+                        {option?.label}
+                      </SelectItem>
+                    ))}
+                  </ScrollArea>
                 </SelectContent>
               </Select>
               <FormMessage />

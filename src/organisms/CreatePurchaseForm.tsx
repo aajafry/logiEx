@@ -166,11 +166,11 @@ export const CreatePurchaseForm = ({
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder={`Select Vendor.`} />
+                      <SelectValue placeholder={`Select a Vendor...`} />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <ScrollArea className="h-42 w-auto rounded-md border">
+                    <ScrollArea className="h-44 w-auto rounded-md border">
                       {vendorOptions.map((vendor) => (
                         <SelectItem
                           className="capitalize"
@@ -200,11 +200,11 @@ export const CreatePurchaseForm = ({
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder={`Select Inventory.`} />
+                      <SelectValue placeholder={`Select an Inventory...`} />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <ScrollArea className="h-42 w-auto rounded-md border">
+                    <ScrollArea className="h-44 w-auto rounded-md border">
                       {inventoryOptions.map((inventory) => (
                         <SelectItem
                           className="capitalize"
@@ -238,11 +238,11 @@ export const CreatePurchaseForm = ({
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder={`Select Product.`} />
+                          <SelectValue placeholder={`Select a Product...`} />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <ScrollArea className="h-42 w-auto rounded-md border">
+                        <ScrollArea className="h-44 w-auto rounded-md border">
                           {productOptions.map((product) => (
                             <SelectItem
                               className="capitalize"

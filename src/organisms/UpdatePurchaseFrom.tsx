@@ -267,11 +267,11 @@ export const UpdatePurchaseFrom = ({
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder={`Select Vendor.`} />
+                          <SelectValue placeholder={`Select a Vendor...`} />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <ScrollArea className="h-42 w-auto rounded-md border">
+                        <ScrollArea className="h-44 w-auto rounded-md border">
                           {vendorOptions.map((vendor) => (
                             <SelectItem
                               className="capitalize"
@@ -315,20 +315,20 @@ export const UpdatePurchaseFrom = ({
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder={`Select Inventory.`} />
+                          <SelectValue placeholder={`Select an Inventory...`} />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <ScrollArea className="h-42 w-auto rounded-md border">
-                        {inventoryOptions.map((inventory) => (
-                          <SelectItem
-                            className="capitalize"
-                            key={inventory?.value}
-                            value={inventory?.label}
-                          >
-                            {inventory?.label}
-                          </SelectItem>
-                        ))}
+                        <ScrollArea className="h-44 w-auto rounded-md border">
+                          {inventoryOptions.map((inventory) => (
+                            <SelectItem
+                              className="capitalize"
+                              key={inventory?.value}
+                              value={inventory?.label}
+                            >
+                              {inventory?.label}
+                            </SelectItem>
+                          ))}
                         </ScrollArea>
                       </SelectContent>
                     </Select>
@@ -430,20 +430,20 @@ export const UpdatePurchaseFrom = ({
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder={`Select Product...`} />
+                          <SelectValue placeholder={`Select a Product...`} />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
                         <ScrollArea className="h-42 w-auto rounded-md border">
-                        {productOptions.map((product) => (
-                          <SelectItem
-                            className="capitalize"
-                            key={product?.value}
-                            value={product?.label}
-                          >
-                            {product?.label}
-                          </SelectItem>
-                        ))}
+                          {productOptions.map((product) => (
+                            <SelectItem
+                              className="capitalize"
+                              key={product?.value}
+                              value={product?.label}
+                            >
+                              {product?.label}
+                            </SelectItem>
+                          ))}
                         </ScrollArea>
                       </SelectContent>
                     </Select>
